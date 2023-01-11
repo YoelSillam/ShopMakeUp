@@ -96,13 +96,13 @@ class Routeur
                     $idMarque =intval($this->getParametre($_POST, 'idMarque'));
                     $this->ctrlProduit->produitMarque($idMarque); 
                 }
-                else if($_GET['action'] == 'newsCommande')
-                {
-                    // $idCommande =intval($this->getParametre($_POST, 'idCommande'));
-                    // $idProduit =intval($this->getParametre($_POST, 'idProduit'));
-                    // $quantite =intval($this->getParametre($_POST, 'quantite'));
-                    $this->ctrlCommande->newsCommande(); 
-                }
+                // else if($_GET['action'] == 'newsCommande')
+                // {
+                //     // $idCommande =intval($this->getParametre($_POST, 'idCommande'));
+                //     // $idProduit =intval($this->getParametre($_POST, 'idProduit'));
+                //     // $quantite =intval($this->getParametre($_POST, 'quantite'));
+                //     $this->ctrlCommande->newsCommande(); 
+                // }
                 else if($_GET['action']=='categories')
                 {
                     $this->ctrlCategorie->categories();
@@ -125,10 +125,10 @@ class Routeur
                 {
                     $this->ctrlCategorie->categoriesAjouter();
                 }
-                else if($_GET['action']=='commandes')
-                {
-                    $this->ctrlCommande->commandes();
-                }
+                // else if($_GET['action']=='commandes')
+                // {
+                //     $this->ctrlCommande->commandes();
+                // }
                 else if($_GET['action']=='marques')
                 {
                     $this->ctrlMarque->marques();

@@ -48,7 +48,7 @@ class ControleurProduit
     }
     public function produitIdModifier($idProduit)
     {
-        $produit = $this->produit->getProduit($idProduit);
+        $produit = $this->produit->getProduitModifier($idProduit);
         $vue = new Vue("ProduitModifier");
         $vue->generer(array('produit'=>$produit));
     }

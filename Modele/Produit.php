@@ -9,18 +9,7 @@ class Produit extends Modele{
         $produits = $this->executerRequete($sql);
         return $produits;
     }
-    public function getCGV()
-    {
-        $sql = 'select * from produit';
-        $CGV = $this->executerRequete($sql);
-        return $CGV; 
-    }
-    public function getCGU()
-    {
-        $sql = 'select * from produit';
-        $CGU = $this->executerRequete($sql);
-        return $CGU; 
-    }
+   
     public function getProduitss()
     {
         $sql = 'select idProduit, libelle, description, ingredient, prix, conseilUtilisation, image from produit';
@@ -28,6 +17,12 @@ class Produit extends Modele{
         return $produits;
     }
     public function getProduit($idProduit)
+    {
+        $sql = 'select idProduit, libelle, description, ingredient, prix, conseilUtilisation, image, libelleMarque from produit inner join marque on produit.idMarque = marque.idMarque where idProduit = ?';
+        $produit = $this->executerRequete($sql, array($idProduit));
+       return $produit;
+    }
+    public function getProduitModifier($idProduit)
     {
         $sql = 'select idProduit, libelle, description, ingredient, prix, conseilUtilisation, image from produit where idProduit = ?';
         $produit = $this->executerRequete($sql, array($idProduit));

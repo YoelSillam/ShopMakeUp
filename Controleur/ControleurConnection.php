@@ -46,11 +46,11 @@ class ControleurConnection
        //  $_SESSION['statut'] == $autho['statut'];
         if($_SESSION['status'] == 2)
             {
-                header("location:http://localhost:8888/devoirRobertShopMake-Up/index.php?action=produitSalarie");
+                header("location:index.php?action=produitSalarie");
                 // session_start();
             }
             else{
-                header("location:http://localhost:8888/devoirRobertShopMake-Up/index.php");
+                header("location:index.php?action=cnx1");
             }
     }
     public function getDeconnection()
@@ -60,7 +60,7 @@ class ControleurConnection
         // session_destroy();
         // $_SESSION = array();
 
-        header("location:http://localhost:8888/devoirRobertShopMake-Up/index.php?action=cnx1");
+        header("location:index.php?action=cnx1");
         // exit();
     }
 }

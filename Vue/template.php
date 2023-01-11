@@ -32,6 +32,37 @@ if (isset($_SESSION["status"]))
 footer{
   margin-top: 40%;
 }
+a#cRetour{
+            border-radius:3px;
+            padding:10px;
+            font-size:15px;
+            text-align:center;
+            color:#fff;
+            background:rgba(0, 0, 0, 0.25);
+            position:fixed;
+            right:20px;
+            opacity:1;
+            z-index:99999;
+            transition:all ease-in 0.2s;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            text-decoration: none;
+        }
+        a#cRetour:before{ content: "\25b2"; }
+        a#cRetour:hover{
+            background:rgba(0, 0, 0, 1);
+            transition:all ease-in 0.2s;
+        }
+        a#cRetour.cInvisible{
+            bottom:-35px;
+            opacity:0;
+            transition:all ease-in 0.5s;
+        }
+
+        a#cRetour.cVisible{
+            bottom:20px;
+            opacity:1;
+        }
 </style>
 
 <!DOCTYPE html>
@@ -42,7 +73,7 @@ footer{
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <link rel="stylesheet" href="/bootstrap-5.2.1-dist/"> -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -61,6 +92,7 @@ footer{
 <body>
     
 <!-- <nav class="navbar navbar-expand-lg bg-light "> -->
+  
 <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
   <div class="container-fluid">
     <!--<a class="navbar-brand" href="#"><img src="./Logo_delta7.png" alt="Logo" width="30px"></a>-->
@@ -71,6 +103,7 @@ footer{
     <div class="navbar-collapse">
     
     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+   
       <?php
           if($value_status == 2)
           {
@@ -100,6 +133,7 @@ footer{
          else 
           {
             ?>
+            
             <li class="nav-item">
           <a class="nav-link" aria-current="page" href="index.php?action=accueil">Make Up Shop</a>
         </li>
@@ -112,7 +146,7 @@ footer{
         </li> -->
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          Categ
+          Catégorie
           </a>
           <ul class="dropdown-menu">
  
@@ -132,7 +166,7 @@ footer{
         </li> -->
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          marque
+          Marque
           </a>
           <ul class="dropdown-menu">
  
@@ -169,8 +203,8 @@ footer{
         </li>
         </ul>
          <form class="d-flex" method="post" action="index.php?action=rechercherProduit" role="search">
-      <input class="form-control me-2" type="search" placeholder="Search" name="libelle" aria-label="Search">
-      <button class="btn btn-outline-success" type="submit">Search</button>
+      <input class="form-control me-2" type="search" placeholder="Rechercher" name="libelle" aria-label="Search">
+      <button class="btn btn-outline-success" type="submit">Rechercher</button>
     </form>
         <!-- <li class="nav-item">
           <a class="nav-link" aria-current="page" href="index.php?action=getDeconnection">Deconnection</a>
@@ -188,6 +222,9 @@ footer{
 </div>
 </nav>
 <main>
+<h1 id="haut"></h1>
+
+<div><a id="cRetour" class="cInvisible" href="#haut"></a></div>
 <div class="container">
  
     <?= $logo ?>
@@ -209,6 +246,11 @@ footer{
     <div class="navbar-collapse">
     
     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+    <div class="container"  >
+    <a class="navbar-brand" href="#">
+      <img src="image/logo1.png"   width="100" height="50">
+    </a>
+    </div>
     <li class="nav-item">
           <a class="nav-link" aria-current="page" href="index.php?action=CGV">CGV</a>
         </li>
@@ -229,6 +271,13 @@ footer{
 </div>
 </nav>
 </footer>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        window.onscroll = function(ev) {
+            document.getElementById("cRetour").className = (window.pageYOffset > 100) ? "cVisible" : "cInvisible";
+        };
+    });
+</script>
 
 </body>
 </html>

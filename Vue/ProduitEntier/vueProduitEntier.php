@@ -30,6 +30,7 @@
 
 ?>
 <h3 style="text-align: center;"><?= $prod['libelle']?></h3>
+<h4 style="text-align: center;"><?= $prod['libelleMarque']?></h4>
 <img src="image/<?=$prod['image']?>" width="40%" height="55%" >
 
 

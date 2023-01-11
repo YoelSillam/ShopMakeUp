@@ -1,3 +1,5 @@
+<h1 style="text-align: center;">Nos Produits</h1>
+
 <div class="row">
 <?php 
 foreach($marque as $marque):
